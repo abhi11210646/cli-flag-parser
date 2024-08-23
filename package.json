@@ -1,14 +1,14 @@
 {
   "name": "cli-flag-parser",
-  "version": "0.0.1",
-  "description": "Parse named cli flags",
+  "version": "1.0.0",
+  "description": "A simple and lightweight CLI flag parser for Node.js that allows you to easily define and parse command-line flags.",
   "main": "index.js",
   "scripts": {
     "test": "mocha tests"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/abhi11210646/cli-flag-parser"
   },
   "author": "abhi11210646",
   "license": "ISC",

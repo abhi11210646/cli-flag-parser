@@ -1,6 +1,6 @@
 # CLI Flag Parser
 
-This is a simple and lightweight CLI flag parser for Node.js, allowing you to easily define and parse command-line flags. 
+This is a simple and lightweight CLI flag parser for Node.js that allows you to easily define and parse command-line flags. 
 
 ## Features
 
@@ -10,7 +10,7 @@ This is a simple and lightweight CLI flag parser for Node.js, allowing you to ea
 
 ## Installation
 
-```bash
+```shell
 npm install cli-flag-parser
 ```
 
@@ -18,15 +18,15 @@ npm install cli-flag-parser
 
 ### Registering Flags
 
-Before parsing the arguments, you need to register the flags that your application will accept. You can register a flag with or without a default value.
+Before parsing the arguments, you must register the flags that your application will accept. You can register a flag with or without a default value.
 
 ```javascript
 const flags = require("cli-flag-parser");
 
 // Registering flags
 flags.registerFlag("name");
-flags.registerFlag("age");
-flags.registerFlag("sex", "male");
+flags.registerFlag("age", "21");
+
 ```
 ### Parsing Arguments
 Once the flags are registered, you can parse the command-line arguments using the parse() function.
@@ -39,7 +39,7 @@ console.log(parsedFlags);
 ## Example
 Suppose you run your script with the following command:
 
-```javascript
+```shell
 node yourScript.js --name=John --age 30 --verbose -d --xyz=no
 ```
 Here’s how you can use the parser to interpret the arguments:
@@ -49,20 +49,19 @@ const flags = require("cli-flag-parser");
 // Registering flags
 flags.registerFlag("name");
 flags.registerFlag("age");
-flags.registerFlag("sex", "male");
+flags.registerFlag("run", true);
 flags.registerFlag("verbose");
 flags.registerFlag("d");
 
 // Parsing the command-line arguments
 const parsedFlags = flags.parse();
-
 console.log(parsedFlags);
 
 Output:
 {
     "name": "John",
     "age": "30",
-    "sex": "male",  // defaultValue
+    "run": true,  // defaultValue
     "verbose": true,
     "d": true
 }
@@ -76,6 +75,8 @@ Note: 'xyz' is not present in the output because it was not registered.
 - defaultValue (any, optional) - Default value of flag.
 #### parse()
 - Parses the command-line arguments and returns an object with the flag names as keys and their corresponding values.
+#### unregisterFlags()
+- Unregister all the flags.
 
 
 
