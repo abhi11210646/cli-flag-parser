@@ -1,6 +1,6 @@
 {
   "name": "cli-flag-parser",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple and lightweight CLI flag parser for Node.js that allows you to easily define and parse command-line flags.",
   "main": "lib/flags-parser.js",
   "types": "index.d.ts",

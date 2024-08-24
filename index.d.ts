@@ -11,5 +11,5 @@ declare module 'cli-flag-parser' {
 
     export function unregisterFlags(): void;
 
-    export function parseArgs(): { [key: string]: any };
+    export function parse(): { [key: string]: any };
 }
