@@ -24,8 +24,8 @@ Before parsing the arguments, you must register the flags that your application 
 const flags = require("cli-flag-parser");
 
 // Registering flags
-flags.registerFlag("name");
-flags.registerFlag("age", "21");
+flags.registerFlag("name", "Name of the person")
+     .registerFlag("age", "Age of the person", "21");
 
 ```
 ### Parsing Arguments
@@ -47,11 +47,11 @@ Here’s how you can use the parser to interpret the arguments:
 const flags = require("cli-flag-parser");
 
 // Registering flags
-flags.registerFlag("name");
-flags.registerFlag("age");
-flags.registerFlag("run", true);
-flags.registerFlag("verbose");
-flags.registerFlag("d");
+flags.registerFlag("name", "name of person")
+    .registerFlag("age", "age of person")
+    .registerFlag("run", "run", true)
+    .registerFlag("verbose", "verbose boolean flag")
+    .registerFlag("d", "d boolean flag");
 
 // Parsing the command-line arguments
 const parsedFlags = flags.parse();
@@ -70,11 +70,16 @@ Note: 'xyz' is not present in the output because it was not registered.
 
 ```
 ## API Reference
-#### registerFlag(flag, defaultValue)
+#### registerFlag(flag, description, defaultValue)
 - flag (string, required) - The name of the flag.
+- description (string, required)- A description of what the flag does
 - defaultValue (any, optional) - Default value of flag.
 #### parse()
 - Parses the command-line arguments and returns an object with the flag names as keys and their corresponding values.
+#### help()
+- Print the help text to the console.
+#### showHelp()
+- Print help text to the console and exit with error.
 #### unregisterFlags()
 - Unregister all the flags.
 
